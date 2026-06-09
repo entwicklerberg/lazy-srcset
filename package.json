@@ -1,5 +1,5 @@
 {
-  "name": "lazy-srcset",
+  "name": "image-fas",
   "version": "0.1.0",
   "description": "Automatically generates placeholders, srcset, sizes, and lazy loading to reduce image bandwidth and improve Core Web Vitals.",
   "type": "module",
@@ -32,6 +32,6 @@
     "nuxt",
     "react",
     "javascript"
-  ]
+  ],
   "license": "MIT"
 }

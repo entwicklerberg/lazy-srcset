@@ -80,9 +80,10 @@ lazySrcset()
 
 ```html
 <img
-	class="lazy-srcset"
-	data-src="/images/porsche911/porsche911.jpg"
-	alt="Porsche 911"
+        class="lazy-srcset"
+        src="/images/porsche911/porsche911-320.jpg"
+        data-srcset="/images/porsche911/porsche911.jpg"
+        alt="Porsche 911"
 />
 ```
 
@@ -104,13 +105,14 @@ No manual `src`, `srcset`, or `sizes` configuration is required.
 
 ## How It Works
 
-1. Add only the original image path using `data-src`.
+1. Add the original image path using and minimal size image`data-src`.
 
 ```html
 <img
-	class="lazy-srcset"
-	data-src="/images/porsche911/porsche911.jpg"
-	alt="Porsche 911"
+        class="lazy-srcset"
+        src="/images/porsche911/porsche911-320.jpg"
+        data-srcset="/images/porsche911/porsche911.jpg"
+        alt="Porsche 911"
 />
 ```
 
@@ -243,21 +245,24 @@ Example:
 
 ```html
 <img
-	class="lazy-srcset"
-	data-src="/images/photo/photo.jpg"
-	alt=""
+        class="lazy-srcset"
+        src="/images/porsche911/photo-320.jpg"
+        data-srcset="/images/porsche911/photo.jpg"
+        alt="photo"
 />
 
 <img
-	class="lazy-srcset"
-	data-src="/images/banner/banner.webp"
-	alt=""
+        class="lazy-srcset"
+        src="/images/banner/banner-320.jpg"
+        data-srcset="/images/banner/banner.jpg"
+        alt="banner"
 />
 
 <img
-	class="lazy-srcset"
-	data-src="/images/hero/hero.avif"
-	alt=""
+        class="lazy-srcset"
+        src="/images/hero/hero-320.avif"
+        data-srcset="/images/hero/hero.avif"
+        alt="hero"
 />
 ```
 
@@ -283,9 +288,7 @@ lazySrcset({
 ```javascript
 lazySrcset({
 	breakpoints: [320, 480, 640, 768, 1024, 1280, 1440, 1920],
-
-	autoPlaceholder: true,
-
+    
 	selector: '.lazy-srcset',
 	root: null,
 	preloadScreens: 2,
@@ -312,7 +315,6 @@ lazySrcset({
 | Option          | Type           | Default                               | Description                                                   |
 | --------------- | -------------- | ------------------------------------- | ------------------------------------------------------------- |
 | breakpoints     | number[]       | [320,480,640,768,1024,1280,1440,1920] | Responsive image widths used for automatic srcset generation. |
-| autoPlaceholder | boolean        | true                                  | Automatically generates a low-resolution placeholder image.   |
 | selector        | string         | .lazy-srcset                          | CSS selector used to find images.                             |
 | root            | Element | null | null                                  | Custom IntersectionObserver root element.                     |
 | preloadScreens  | number         | 2                                     | Number of viewport heights before loading begins.             |

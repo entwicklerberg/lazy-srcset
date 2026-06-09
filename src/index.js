@@ -1,8 +1,6 @@
 const defaults = {
     breakpoints: [320, 480, 640, 768, 1024, 1280, 1440, 1920],
 
-    autoPlaceholder: true,
-
     selector: '.lazy-srcset',
     root: null,
     preloadScreens: 2,
@@ -25,7 +23,6 @@ const defaults = {
     defaultSizes: '100vw'
 }
 
-
 function parseImagePath(src) {
     const cleanSrc = src.split('?')[0]
     const query = src.includes('?') ? `?${src.split('?')[1]}` : ''
@@ -47,16 +44,8 @@ function parseImagePath(src) {
     }
 }
 
-
-function generatePlaceholder(src, breakpoints) {
-    const { basePath, extension } = parseImagePath(src)
-
-    return `${basePath}-${breakpoints[0]}.${extension}`
-}
-
-
 function generateSrcset(src, breakpoints) {
-    const { basePath, extension, query } = parseImagePath(src)
+    const {basePath, extension, query} = parseImagePath(src)
 
     if (!extension) return ''
 
@@ -67,7 +56,6 @@ function generateSrcset(src, breakpoints) {
         .join(', ')
 }
 
-
 export function lazySrcset(options = {}) {
     const settings = {
         ...defaults,
@@ -77,14 +65,17 @@ export function lazySrcset(options = {}) {
     const images = document.querySelectorAll(settings.selector)
 
     const prepareImage = (img) => {
-        if (
-            settings.autoPlaceholder &&
-            !img.getAttribute('src') &&
-            img.dataset.src
-        ) {
-            img.src = generatePlaceholder(
-                img.dataset.src,
-                settings.breakpoints
+        if (!img.getAttribute('src')) {
+            console.warn(
+                '[lazySrcset] Attribute "src" is required and should contain the smallest image.',
+                img
+            )
+        }
+
+        if (!img.dataset.srcset) {
+            console.warn(
+                '[lazySrcset] Attribute "data-srcset" is required and should contain the largest image.',
+                img
             )
         }
 
@@ -102,7 +93,6 @@ export function lazySrcset(options = {}) {
 
         img.classList.add(settings.blurClass)
     }
-
 
     const setImageSizes = (img) => {
         if (img.dataset.sizes) {
@@ -127,9 +117,11 @@ export function lazySrcset(options = {}) {
 
         setImageSizes(img)
 
-
-        if (settings.autoSrcset && !img.dataset.srcset && img.dataset.src) {
-            img.srcset = generateSrcset(img.dataset.src, settings.breakpoints)
+        if (img.dataset.srcset) {
+            img.srcset = generateSrcset(
+                img.dataset.srcset,
+                settings.breakpoints
+            )
         }
 
         img.onload = () => {
