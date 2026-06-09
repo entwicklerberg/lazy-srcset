@@ -7,8 +7,11 @@
   "exports": {
     ".": "./src/index.js"
   },
+  "scripts": {
+    "build": "terser src/index.js -o dist/lazy-srcset.min.js -c -m"
+  },
   "files": [
-    "src",
+    "dist",
     "README.md"
   ],
   "keywords": [
@@ -33,5 +36,8 @@
     "react",
     "javascript"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "terser": "^5.48.0"
+  }
 }
