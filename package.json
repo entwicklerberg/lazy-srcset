@@ -7,9 +7,9 @@
   },
   "description": "Automatically generates placeholders, srcset, sizes, and lazy loading to reduce image bandwidth and improve Core Web Vitals.",
   "type": "module",
-  "main": "./src/index.js",
+  "main": "./dist/lazy-srcset.min.js",
   "exports": {
-    ".": "./src/index.js"
+    ".": "./dist/lazy-srcset.min.js"
   },
   "scripts": {
     "build": "terser src/index.js -o dist/lazy-srcset.min.js -c -m"
