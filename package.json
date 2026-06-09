@@ -1,6 +1,10 @@
 {
   "name": "image-fas",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/entwicklerberg/lazy-srcset.git"
+  },
   "description": "Automatically generates placeholders, srcset, sizes, and lazy loading to reduce image bandwidth and improve Core Web Vitals.",
   "type": "module",
   "main": "./src/index.js",
