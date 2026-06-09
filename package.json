@@ -1,6 +1,6 @@
 {
-  "name": "image-fas",
-  "version": "0.1.0",
+  "name": "lazy-srcset",
+  "version": "0.1.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/entwicklerberg/lazy-srcset.git"
