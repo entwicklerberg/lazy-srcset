@@ -1,0 +1,37 @@
+{
+  "name": "lazy-srcset",
+  "version": "0.1.0",
+  "description": "Automatically generates placeholders, srcset, sizes, and lazy loading to reduce image bandwidth and improve Core Web Vitals.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "keywords": [
+    "lazyload",
+    "lazy-loading",
+    "images",
+    "responsive-images",
+    "srcset",
+    "webp",
+    "avif",
+    "placeholder",
+    "intersection-observer",
+    "performance",
+    "pagespeed",
+    "lighthouse",
+    "core-web-vitals",
+    "cls",
+    "lcp",
+    "wordpress",
+    "vue",
+    "nuxt",
+    "react",
+    "javascript"
+  ]
+  "license": "MIT"
+}
